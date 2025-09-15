@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map of Hogwarts</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <h1 class="sr-only">Smart Campus Demo</h1>
+
+<section class="wrapper">
+      <nav class="tabs" role="tablist" aria-label="Campus Areas">
+        <button class="tab is-active" role="tab" aria-selected="true" data-area="original">全体地図 
+        </button>
+        <button class="tab " role="tab" aria-selected="false" data-area="hogwarts">1. ホグワーツ</button>
+        <button class="tab  " role="tab" aria-selected="false" data-area="hogsmead">2. ホグズミード村</button>
+        <button class="tab" role="tab" aria-selected="false" data-area="qudditch">3. クィディッチ競技場</button>
+        <button class="tab" role="tab" aria-selected="false" data-area="forest">4. 禁じられた森</button>
+      </nav>
+  
+      <div class="scene" aria-live="polite">
+        <div class="image-wrap">
+          <!-- 베이스 이미지 -->
+          <img id="base" src="./img/campus.jpg" alt="캠퍼스 전경" />
+          
+          <img src="./img/campus.jpg" class="zoom-overlay" alt="캠퍼스 확대" />
+          
+
+  
+          <!-- 영역별 하이라이트 오버레이 (PNG 또는 SVG) -->
+          <img class="overlay overlay-hogsmead" data-area="hogsmead" src="./img/Hogsmead.jpg" alt="" aria-hidden="true" />
+          <img class="overlay overlay-qudditch" data-area="qudditch" src="./img/Qudditch.jpg" alt="" aria-hidden="true" />
+          <img class="overlay overlay-forest" data-area="forest" src="./img/Forest.jpg" alt="" aria-hidden="true" />
+        </div>
+  
+        <!-- JS가 여기에 해당 영역의 핫스팟 버튼들을 렌더링 -->
+        <div class="hotspots" aria-label="현재 영역 핫스팟들"></div>
+  
+        <!-- 툴팁 컨테이너(재사용) -->
+        <div id="tooltip" class="tooltip" hidden>
+          <button class="tooltip__close" aria-label="닫기">&times;</button>
+          <div class="tooltip__arrow" aria-hidden="true"></div>
+          <h3 class="tooltip__title"></h3>
+          <p class="tooltip__desc"></p>
+          <img class="tooltip__image" alt="" style="display: none;" />
+        </div>
+      </div>
+</section>
+  </main>
+
+  <script src="./index.js" defer></script>
+</body>
+</html>
