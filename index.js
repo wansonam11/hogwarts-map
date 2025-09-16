@@ -108,6 +108,7 @@ const tipCloseEl = tooltipEl?.querySelector(".tooltip__close");
 const zoomOverlay = document.querySelector(".zoom-overlay");
 
 let activeArea = "original";
+let lensElement = null;
 
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
@@ -272,6 +273,14 @@ function initMagnifier() {
   const wrap = document.querySelector(".image-wrap");
   const zoom = document.querySelector(".zoom-overlay");
 
+  // 렌즈 요소 생성
+  if (!lensElement) {
+    lensElement = document.createElement("div");
+    lensElement.className = "lens";
+    lensElement.setAttribute("aria-hidden", "true");
+    wrap.appendChild(lensElement);
+  }
+
   if (wrap && zoom) {
     wrap.addEventListener("mousemove", (e) => {
       if (activeArea === "original") {
@@ -279,14 +288,21 @@ function initMagnifier() {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
+        // 줌 오버레이 업데이트 (scale 1.7에 맞춰서 60px 반지름)
         zoom.style.clipPath = `circle(60px at ${x}px ${y}px)`;
         zoom.style.transformOrigin = `${x}px ${y}px`;
+
+        // 렌즈 위치 업데이트 (scale 1.7 적용됨)
+        lensElement.style.left = `${x}px`;
+        lensElement.style.top = `${y}px`;
+        lensElement.style.opacity = "1";
       }
     });
 
     wrap.addEventListener("mouseleave", () => {
       if (activeArea === "original") {
         zoom.style.clipPath = "circle(0px at 0 0)";
+        lensElement.style.opacity = "0";
       }
     });
   }
