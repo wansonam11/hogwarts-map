@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
 
-// 색상 변수
+// 色変数
 $card: #11161d;
 $ink: #e8edf3;
 $muted: #a6b0bb;
 $accent: #57c0ff;
 
-// 그림자 및 스타일 변수
+// シャドウとスタイル変数
 $shadow-1: 0 6px 18px rgba(0, 0, 0, 0.18);
 $shadow-2: 0 14px 40px rgba(0, 0, 0, 0.32);
 $radius-xl: 16px;
@@ -14,7 +14,7 @@ $radius-2xl: 20px;
 $z-hotspot: 2;
 $z-tooltip: 3;
 
-// 기본 스타일
+// 基本スタイル
 *,
 *::before,
 *::after {
@@ -62,17 +62,17 @@ body {
   width: min(1200px, 95vw);
 }
 
-// 장면 컨테이너
+// シーンコンテナ
 .scene {
   position: relative;
   width: 100%;
   margin-inline: auto;
 }
 
-// 확대 효과용 래퍼
+// 拡大効果用ラッパー
 .image-wrap {
   position: relative;
-  overflow: hidden; // 확대시 이미지 튀어나옴 방지
+  overflow: hidden; // 拡大時の画像はみ出し防止
   border-radius: $radius-2xl;
   box-shadow: $shadow-2;
   background: linear-gradient(180deg, #0f1622 0%, #0b0f14 100%);
@@ -85,17 +85,17 @@ body {
   transition: transform 0.45s ease, filter 0.45s ease;
   transform-origin: 50% 50%;
   will-change: transform;
-  // 살짝 선명도 강화
+  // 若干の鮮明度強化
   filter: saturate(1.05) contrast(1.02);
 }
 
-// 이미지 hover 효과 제거
+// 画像hover効果削除
 
-// 핫스팟 (이미지 위 절대배치)
+// ホットスポット (画像上の絶対配置)
 .hotspot {
   position: absolute;
-  inset: 0 auto auto 0; // JS에서 left/top 설정
-  transform: translate(-50%, -50%); // 좌표 중심 정렬
+  inset: 0 auto auto 0; // JSでleft/top設定
+  transform: translate(-50%, -50%); // 座標中心整列
   z-index: $z-hotspot;
   border: 0;
   background: transparent;
@@ -144,9 +144,9 @@ body {
   }
 }
 
-// 툴팁
+// ツールチップ
 .tooltip {
-  position: absolute; // scene 기준
+  position: absolute; // scene基準
   z-index: $z-tooltip;
   min-width: 220px;
   max-width: clamp(220px, 28vw, 340px);
@@ -182,7 +182,7 @@ body {
   }
 }
 
-// 모바일 보정
+// モバイル補正
 @media (max-width: 640px) {
   .tooltip {
     min-width: 200px;
@@ -192,26 +192,26 @@ body {
     height: 16px;
   }
 
-  // 모바일에서 확대 시 더 부드러운 전환
+  // モバイルでの拡大時により滑らかな遷移
   .image-wrap {
     &.zoomed {
       img {
-        transform: scale(1.3); // 모바일에서는 조금 덜 확대
+        transform: scale(1.3); // モバイルでは少し縮小
         transition: transform 0.2s ease-out;
       }
     }
   }
 
-  // 터치 친화적인 탭 버튼
+  // タッチフレンドリーなタブボタン
   .tab {
-    padding: 12px 16px; // 터치하기 쉽게 크기 증가
-    font-size: 16px; // 터치하기 쉬운 폰트 크기
+    padding: 12px 16px; // タッチしやすいサイズに増加
+    font-size: 16px; // タッチしやすいフォントサイズ
   }
 
-  // 모바일에서 핫스팟 터치 영역 확대
+  // モバイルでのホットスポットタッチ領域拡大
   .hotspot {
-    padding: 8px; // 터치 영역 확대
-    margin: -8px; // 시각적 크기는 유지
+    padding: 8px; // タッチ領域拡大
+    margin: -8px; // 視覚的サイズは維持
   }
 }
 * {
@@ -279,10 +279,10 @@ body {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.35s ease;
-  mix-blend-mode: multiply; /* 색칠 효과를 더 자연스럽게 */
+  mix-blend-mode: multiply; /* 色彩効果をより自然に */
 }
 
-/* 각 영역별로 다른 모양의 clip-path 적용 */
+/* 各エリア別の異なる形状のclip-path適用 */
 .overlay-learning {
   clip-path: polygon(
     30% 20%,
@@ -291,15 +291,15 @@ body {
     70% 80%,
     30% 80%,
     20% 50%
-  ); /* 육각형 모양 */
+  ); /* 六角形形状 */
 }
 
 .overlay-library {
-  clip-path: circle(25% at 50% 50%); /* 원형 */
+  clip-path: circle(25% at 50% 50%); /* 円形 */
 }
 
 .overlay-office {
-  /* clip-path 제거 - forest.png가 전체적으로 표시됨 */
+  /* clip-path削除 - forest.pngが全体的に表示 */
 }
 .overlay.is-active {
   opacity: 1;
@@ -357,7 +357,7 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-// 확대기 스타일
+// 拡大鏡スタイル
 .magnifier-wrap {
   position: relative;
   display: inline-block;

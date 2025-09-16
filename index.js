@@ -273,7 +273,7 @@ function initMagnifier() {
   const wrap = document.querySelector(".image-wrap");
   const zoom = document.querySelector(".zoom-overlay");
 
-  // 렌즈 요소 생성
+  // レンズ要素生成
   if (!lensElement) {
     lensElement = document.createElement("div");
     lensElement.className = "lens";
@@ -288,11 +288,11 @@ function initMagnifier() {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        // 줌 오버레이 업데이트 (scale 1.7에 맞춰서 60px 반지름)
+        // ズームオーバーレイ更新 (scale 1.7に合わせて60px半径)
         zoom.style.clipPath = `circle(60px at ${x}px ${y}px)`;
         zoom.style.transformOrigin = `${x}px ${y}px`;
 
-        // 렌즈 위치 업데이트 (scale 1.7 적용됨)
+        // レンズ位置更新 (scale 1.7適用)
         lensElement.style.left = `${x}px`;
         lensElement.style.top = `${y}px`;
         lensElement.style.opacity = "1";

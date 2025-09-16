@@ -137,7 +137,7 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* 위쪽 화살표 (툴팁 맨 위에서 나타남) */
+/* 上向き矢印 (ツールチップ最上部に表示) */
 .tooltip .tooltip__arrow--top {
   top: -7px;
   left: 50%;
@@ -294,7 +294,7 @@ body {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.35s ease;
-  /* mix-blend-mode: multiply; */ /* 색칠 효과를 더 자연스럽게 */
+  /* mix-blend-mode: multiply; */ /* 色彩効果をより自然に */
 }
 
 
